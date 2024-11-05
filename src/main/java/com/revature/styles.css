@@ -19,29 +19,41 @@ main {
 }
 
 #search-form {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack vertically on small screens */
     gap: 1rem;
     margin-bottom: 1rem;
 }
 
 
 #filter-sort {
+    display: flex; /* Use flexbox for layout */
     justify-content: space-between;
     margin-bottom: 1rem;
 }
 
 #book-list {
     list-style-type: none;
+    display: grid; /* Use grid for responsive layout */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust columns based on screen size */
+    gap: 1rem; /* Space between book items */
 }
 
 .book-item {
     border: 1px solid #ddd;
     padding: 1rem;
     border-radius: 5px;
+    transition: box-shadow 0.3s ease; /* Add a transition for hover effect */
+}
+
+.book-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
 }
 
 .book-item img {
     max-width: 100%;
     height: auto;
+    display: none; /* Initially hidden */
 }
 
 #selected-book {
@@ -51,3 +63,32 @@ main {
     margin-top: 1rem;
 }
 
+/* Responsive Design for Small Screens */
+@media (max-width: 600px) {
+    #search-form {
+        flex-direction: column; /* Stack inputs vertically */
+    }
+
+    #filter-sort {
+        flex-direction: column; /* Stack filter and sort controls */
+    }
+
+    #book-list {
+        grid-template-columns: 1fr; /* Single column for small screens */
+    }
+}
+
+/* Responsive Design for Medium Screens */
+@media (min-width: 601px) and (max-width: 900px) {
+    #search-form {
+        flex-direction: row; /* Row layout for medium screens */
+    }
+
+    #filter-sort {
+        flex-direction: row; /* Keep filter and sort controls in a row */
+    }
+
+    #book-list {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust columns for medium screens */
+    }
+}

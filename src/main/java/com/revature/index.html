@@ -7,8 +7,51 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <main>
+        <!-- Application Header -->
+        <header>
+            <h1>Book Finder Application</h1>
+        </header>
     
+        <!-- Search Section -->
+        <section id="book-search">
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Enter your search" aria-label="Search input">
+                <select id="search-type" aria-label="Search type">
+                    <option value="title">Title</option>
+                    <option value="author">Author</option>
+                    <option value="isbn">ISBN</option>
+                </select>
+                <button type="submit" id="search-button">Search</button> <!-- Ensure this ID is correct -->
+            </form>
     
+            <button id="sort-rating">Sort by Rating</button>
+            <label>
+                <input type="checkbox" id="ebook-filter"> Show E-books Only <!-- Ensure this ID is correct -->
+            </label>
+        </section>
+    
+        <!-- Book Results Section -->
+        <section id="search-results">
+            <ul id="book-list"></ul>
+        </section>
+    
+        <!-- Detailed Book View -->
+        <section id="selected-book" style="display: none;">
+            <h2 class="title-element"></h2>
+            <p class="author-element"></p>
+            <img class="cover-element" alt="Book cover">
+            <p class="published-element"></p>
+            <p class="rating-element"></p>
+            <p class="ebook-element"></p>
+            <p class="isbn-element"></p>
+        </section>
+    
+        <!-- Application Footer -->
+        <footer>
+            <p>&copy; 2023 Book Finder</p>
+        </footer>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
